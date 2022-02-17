@@ -6,7 +6,10 @@ package cuentas;
 
 /**
  *
+ * Se comprueba si se ingresa cantidad positiva y para retirar si hay saldo suficiente en la cuenta
+ * 
  * @author luisa
+ * @version 1.0
  */
 public class CCuenta {
 
@@ -20,6 +23,7 @@ public class CCuenta {
     {
     }
 
+
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         nombre =nom;
@@ -27,11 +31,19 @@ public class CCuenta {
         saldo=sal;
     }
 
+    /**
+    * @return Saldo
+    */
     public double estado()
     {
         return getSaldo();
     }
 
+    /**
+    * Se comprueba que la cantidad a ingresar sea positiva
+    * @throws Exception  If an exception occurred 
+    *                      
+    */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
@@ -39,6 +51,11 @@ public class CCuenta {
         setSaldo(getSaldo() + cantidad);
     }
 
+    /**
+    * Se comprueba que la cantidad a retirar sea positva e inferior al saldo de la cuenta
+    * @throws Exception  If an exception occurred 
+    *                      
+    */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)
